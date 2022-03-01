@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => env('APP_KEY','SomeRandomString'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        'Tymon\JWTAuth\Providers\LaravelServiceProvider',
         /*
          * Application Service Providers...
          */
@@ -192,6 +192,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // ...
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ])->toArray(),
 
 ];
